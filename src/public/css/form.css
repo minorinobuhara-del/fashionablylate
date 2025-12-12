@@ -1,0 +1,189 @@
+/* ------------------------------------
+ 共通設定（背景色・フォント）
+------------------------------------ */
+body {
+    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background-color: #faf7f4;
+    margin: 0;
+    padding: 0;
+    color: #6d5a4d;
+}
+
+/* ------------------------------------
+ 見出し
+------------------------------------ */
+h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+    margin: 40px 0 50px;
+    color: #6d5a4d;
+}
+
+/* ------------------------------------
+ フォームエリア
+------------------------------------ */
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+form {
+    width: 100%;
+}
+
+/* 左ラベル + 右入力欄の2列レイアウト */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+/* 左側ラベル（日本語項目） */
+.form-group label {
+    width: 160px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: #5c4a40;
+}
+
+/* 必須マーク */
+.req {
+    color: #e47c71;
+    margin-left: 3px;
+}
+
+/* ------------------------------------
+ 入力欄（右側）
+------------------------------------ */
+.form-input-area {
+    width: 100%;
+}
+
+/* テキスト入力、セレクト、テキストエリア共通 */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 14px;
+    background: #f2eeeb;
+    border: 1px solid #e2dad4;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* 名前2つを横並び */
+.name-flex {
+    display: flex;
+    gap: 18px;
+}
+
+.name-flex input {
+    width: 50%;
+}
+
+/* 電話番号3つ並び */
+.tel-flex {
+    display: flex;
+    gap: 18px;
+}
+
+.tel-flex input {
+    width: 32%;
+}
+
+/* テキストエリア */
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* ------------------------------------
+ ラジオボタン
+------------------------------------ */
+.radio-group label {
+    margin-right: 25px;
+    font-weight: normal;
+}
+
+/* 黒丸の色調整（Safari用も考慮） */
+input[type="radio"] {
+    accent-color: #5c4a40;
+}
+
+/* ------------------------------------
+ プルダウンの ▼ をスクショ風に
+------------------------------------ */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%236d5a4d' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px;
+}
+
+/* ------------------------------------
+ ボタン
+------------------------------------ */
+.btn-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+button {
+    background: #7a6a5c;
+    color: white;
+    border: none;
+    padding: 12px 45px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5d4f43;
+}
+
+/* ------------------------------------
+ エラー文
+------------------------------------ */
+.error {
+    color: #e47c71;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+/* ------------------------------------
+ 確認画面テーブル
+------------------------------------ */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+.confirm-table th,
+.confirm-table td {
+    border: 1px solid #e2dad4;
+    padding: 15px 20px;
+    background: #f7f3f0;
+}
+
+.confirm-table th {
+    width: 200px;
+    background: #efe9e5;
+    font-weight: 600;
+}
+
+/* 戻る/送信ボタン */
+.btn-back {
+    background: #c8b8ab;
+    margin-left: 15px;
+}
+
+.btn-back:hover {
+    background: #b3a397;
+}

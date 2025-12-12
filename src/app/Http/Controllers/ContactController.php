@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ContactController extends Controller
+{
+    // フォーム表示
+    public function form()
+    {
+        return view('contact.form');
+    }
+
+    // 確認画面
+    public function confirm(ContactRequest $request)
+    {
+        $inputs = $request->all();
+        return view('contact.confirm', compact('inputs'));
+    }
+
+    // 送信処理
+    public function send(ContactRequest $request)
+    {
+        $inputs = $request->except('action');
+
+        // 戻るボタン
+        if ($request->action === 'back') {
+            return redirect()->route('contact.form')->withInput($inputs);
+        }
+    }
+
+}
