@@ -1,6 +1,6 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
 @section('title', '確認画面')
-
 @section('content')
 <h1>確認画面</h1>
 

@@ -1,0 +1,89 @@
+/* ==============================
+Confirm ページ全体
+============================== */
+.confirm-wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.confirm-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #6d5a4d;
+    margin: 40px 0 50px;
+}
+
+/* ==============================
+確認テーブル
+============================== */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto 50px;
+    font-size: 15px;
+}
+
+/* 左側（項目名） */
+.confirm-table th {
+    width: 260px;
+    background-color: #bfb1a5;
+    /* ← スクショのブラウン */
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 18px 15px;
+    border-bottom: 1px solid #e6dfd9;
+}
+
+/* 右側（入力値） */
+.confirm-table td {
+    background-color: #ffffff;
+    color: #6d5a4d;
+    padding: 18px 25px;
+    border-bottom: 1px solid #e6dfd9;
+    line-height: 1.8;
+}
+
+/* 最下行も線を揃える */
+.confirm-table tr:last-child th,
+.confirm-table tr:last-child td {
+    border-bottom: 1px solid #e6dfd9;
+}
+
+/* ==============================
+ボタンエリア
+============================== */
+.confirm-btn-area {
+    text-align: center;
+}
+
+/* 送信ボタン */
+.confirm-btn {
+    background-color: #7a6a5c;
+    color: #ffffff;
+    border: none;
+    padding: 12px 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 修正ボタン */
+.confirm-back {
+    margin-left: 30px;
+    background: none;
+    border: none;
+    color: #7a6a5c;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.confirm-back:hover {
+    text-decoration: underline;
+}
+
+.confirm-btn:hover {
+    background-color: #5d4f43;
+}
