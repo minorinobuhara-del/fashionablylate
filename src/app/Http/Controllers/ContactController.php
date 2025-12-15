@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -28,6 +29,7 @@ class ContactController extends Controller
         if ($request->action === 'back') {
             return redirect()->route('contact.form')->withInput($inputs);
         }
+        return view('contact.thanks');
     }
 
 }
