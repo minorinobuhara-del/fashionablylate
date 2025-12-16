@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
 @section('title', '確認画面')
 @section('content')
+@endsection
 <h1>確認画面</h1>
 
 <form action="{{ route('contact.send') }}" method="post">
@@ -26,16 +27,15 @@
         @csrf
         @forearch ($input as $name => $value)
         <input type="hidden" name="{{ $name }}" value="{{ $value }}">
-        @endforeach
     <button type="submit" class="btn">送信する</button>
+    @endforeach
     </form>
     <form action="/" method="post">
         @csrf
         @foreach ($input as $name => $value)
         <input type="hidden" name="{{ $name }}" value="{{ $value }}">
-        @endforeach
     <button type="submit" class="btn-back">修正</button>
+    @endforeach
     </form>
 </form>
-
 @endsection

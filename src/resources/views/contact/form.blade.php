@@ -72,8 +72,9 @@
         <textarea name="message" placeholder="ご記入ください">{{ old('message') }}</textarea>
         @error('message') <p class="error">{{ $message }}</p> @enderror
     </div>
-
+    <div class="button-area">
     <button type="submit" class="btn">確認画面へ</button>
+   </div>
 </form>
 
 @endsection

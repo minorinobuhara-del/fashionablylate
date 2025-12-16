@@ -16,8 +16,10 @@ class ContactController extends Controller
     // 確認画面
     public function confirm(ContactRequest $request)
     {
-        $inputs = $request->all();
-        return view('contact.confirm', compact('inputs'));
+        //$inputs = $request->all();
+        //return view('contact.confirm', compact('inputs'));
+        $date = $request->all();
+        return view('contact.confirm', compact('date'));
     }
 
     // 送信処理
