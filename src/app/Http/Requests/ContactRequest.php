@@ -24,8 +24,8 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'lastname'  => 'required|string|max:8',
-            'firstname' => 'required|string|max:8',
+            'last_name'  => 'required|string|max:8',
+            'first_name' => 'required|string|max:8',
             'gender'    => 'required',
             'email'     => 'required|email',
             'tel1'      => 'required|digits:5',
@@ -42,7 +42,18 @@ class ContactRequest extends FormRequest
     {
         return [
             'required' => '必須項目です。',
-            'email' => 'メールアドレスの形式で入力してください。',
+            'first_name' => '姓を入力してください。',
+            'last_name' => '名を入力してください。',
+            'gender' => '性別を選択してください。',
+            'email.required' => 'メールアドレスを入力してください。',
+            'email.email' => 'メールアドレスはメール形式で入力してください。',
+            'tel.required' => '電話番号を入力してください。',
+            'tel.regex' => '電話番号は半角英数字で入力してください。',
+            'tel.digits' => '電話番号は5桁まで数字で入力してください。',
+            'address.required' => '住所を入力してください。',
+            'category.required' => 'お問い合わせの週類を選択してください。',
+            'content.required' => 'お問い合わせ内容を入力してください。',
+            'content.max' => 'お問い合わせ内容は120文字以内で入力してください。',
             'digits_between' => '正しい形式で入力してください。'
         ];
     }

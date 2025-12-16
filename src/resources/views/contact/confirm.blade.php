@@ -12,7 +12,7 @@
     @endforeach
 
     <table class="confirm-table">
-        <tr><th>お名前</th><td>{{ $inputs['lastname'] }} {{ $inputs['firstname'] }}</td></tr>
+        <tr><th>お名前</th><td>{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</td></tr>
         <tr><th>性別</th><td>{{ $inputs['gender'] }}</td></tr>
         <tr><th>メール</th><td>{{ $inputs['email'] }}</td></tr>
         <tr><th>電話番号</th><td>{{ $inputs['tel1'] }}-{{ $inputs['tel2'] }}-{{ $inputs['tel3'] }}</td></tr>
@@ -22,8 +22,20 @@
         <tr><th>内容</th><td>{!! nl2br(e($inputs['message'])) !!}</td></tr>
     </table>
 
-    <button name="action" value="send" class="btn">送信する</button>
-    <button name="action" value="back" class="btn-back">戻る</button>
+    <form action="/thanks" method="post">
+        @csrf
+        @forearch ($input as $name => $value)
+        <input type="hidden" name="{{ $name }}" value="{{ $value }}">
+        @endforeach
+    <button type="submit" class="btn">送信する</button>
+    </form>
+    <form action="/" method="post">
+        @csrf
+        @foreach ($input as $name => $value)
+        <input type="hidden" name="{{ $name }}" value="{{ $value }}">
+        @endforeach
+    <button type="submit" class="btn-back">修正</button>
+    </form>
 </form>
 
 @endsection

@@ -32,4 +32,21 @@ class ContactController extends Controller
         return view('contact.thanks');
     }
 
+    //送信→DB保存→サンクス画面
+    public function store(ContactRequest $request)
+    {
+        Contact::create([
+            'last_name' => $request->last_name,
+            'first_name' => $request-> first_name,
+            'gender' => $request-> gender,
+            'email' => $request-> email,
+            'tel' => str_replace('-', '', $request->tel),
+            'address' => $request-> address,
+            'building'    => $request->building,
+            'category' => $request->category,
+            'content'     => $request->content,
+        ]);
+        return view('content.thanks');
+
+    }
 }

@@ -9,5 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function back(Request $request)
+    {
+        return redirect('/')->withInput($request->except('_token'));
+    }
 }

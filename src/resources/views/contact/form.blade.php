@@ -12,11 +12,11 @@
     <div class="form-group">
         <label>お名前 *</label>
         <div class="name-flex">
-            <input type="text" name="lastname" value="{{ old('lastname') }}" placeholder="例: 山田">
-            <input type="text" name="firstname" value="{{ old('firstname') }}" placeholder="例: 太郎">
+            <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 山田">
+            <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 太郎">
         </div>
-        @error('lastname') <p class="error">{{ $message }}</p> @enderror
-        @error('firstname') <p class="error">{{ $message }}</p> @enderror
+        @error('last_name') <p class="error">{{ $message }}</p> @enderror
+        @error('first_name') <p class="error">{{ $message }}</p> @enderror
     </div>
 
     <div class="form-group">

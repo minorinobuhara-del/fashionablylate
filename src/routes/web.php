@@ -20,8 +20,12 @@ use App\Http\Controllers\ContactController;
 Route::get('/contact/form', [ContactController::class, 'form'])->name('contact.form');
 Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/', [ContactController::class, 'back'])->name('content.back');
 Route::get('/contact/thanks', function () {
     return view('contact.thanks');
 })->name('contact.thanks');
+
+//初期状態のお問い合わせフォームに戻るためのルートを追加
+Route::get('/', [ContactController::class, 'form']);
 
 
