@@ -38,13 +38,13 @@ class ContactRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'required' => '必須項目です。',
-            'first_name' => '姓を入力してください。',
-            'last_name' => '名を入力してください。',
-            'gender' => '性別を選択してください。',
+            'first_name.required' => '姓を入力してください。',
+            'last_name.required' => '名を入力してください。',
+            'gender.required' => '性別を選択してください。',
             'email.required' => 'メールアドレスを入力してください。',
             'email.email' => 'メールアドレスはメール形式で入力してください。',
             'tel.required' => '電話番号を入力してください。',

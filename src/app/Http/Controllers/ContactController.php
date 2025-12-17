@@ -16,10 +16,8 @@ class ContactController extends Controller
     // 確認画面
     public function confirm(ContactRequest $request)
     {
-        //$inputs = $request->all();
-        //return view('contact.confirm', compact('inputs'));
-        $date = $request->all();
-        return view('contact.confirm', compact('date'));
+        $inputs = $request->all();
+        return view('contact.confirm', compact('inputs'));
     }
 
     // 送信処理
@@ -33,6 +31,14 @@ class ContactController extends Controller
         }
         return view('contact.thanks');
     }
+
+    //確認画面から戻る
+    public function index()
+{
+    return view('contact.index');
+}
+
+
 
     //送信→DB保存→サンクス画面
     public function store(ContactRequest $request)
