@@ -30,10 +30,10 @@
 </form>
 
 {{-- 修正ボタン --}}
-<form action="{{ route('contact.back') }}" method="post">
+<form action="{{ route('contact.return') }}" method="post">
     @csrf
-    @foreach ($inputs as $name => $value)
-        <input type="hidden" name="{{ $name }}" value="{{ $value }}">
+    @foreach ($inputs as $key => $value)
+        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
     @endforeach
     <button type="submit" class="confirm-back">修正</button>
 </form>

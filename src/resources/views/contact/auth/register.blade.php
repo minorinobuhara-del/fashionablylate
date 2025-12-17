@@ -10,7 +10,7 @@
 
 <header class="header">
     <h1 class="logo">FashionablyLate</h1>
-    <a href="/login" class="login-btn">login</a>
+    <a href="{{ route('login') }}" class="login-btn">login</a>
 </header>
 
 <main class="main">

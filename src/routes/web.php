@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\LoginController;
 Route::get('/contact', [ContactController::class, 'index'])
     ->name('contact.index');
 Route::get('/contact/form', [ContactController::class, 'form'])->name('contact.form');
-Route::post('//contact/back', [ContactController::class, 'back'])->name('contact.back');
+Route::post('/contact/return', [ContactController::class, 'returnForm'])->name('contact.return');
 Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::get('/contact/thanks', function () {
@@ -40,5 +41,24 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
+//管理画面
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth')
+    ->name('admin');
 
+//ログアウトへのルート追加
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
+//エクスポート機能
+Route::get('/admin/export', [AdminController::class, 'export'])
+    ->middleware('auth')
+    ->name('admin.export');
+
+//モーダル表示時に削除依頼する
+Route::delete('/admin/{id}', [AdminController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('admin.destroy');
 

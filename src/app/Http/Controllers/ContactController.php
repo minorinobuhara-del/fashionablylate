@@ -32,6 +32,14 @@ class ContactController extends Controller
         return view('contact.thanks');
     }
 
+    //修正
+    public function returnForm(Request $request)
+    {
+        return redirect()
+            ->route('contact.form')
+            ->withInput($request->all());
+    }
+
     //確認画面から戻る
     public function index()
 {
