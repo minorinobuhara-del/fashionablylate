@@ -12,7 +12,7 @@ return [
 
     'features' => [
         Features::registration(),
-        Features::login(),
+        //Features::login(),
     ],
 
 ];
