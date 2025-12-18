@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use App\Models\Contact;
 
 class AdminController extends Controller
@@ -85,6 +86,9 @@ class AdminController extends Controller
 
         return $response;
     }
+
+
+
 
     // 省略（index, export など）
 

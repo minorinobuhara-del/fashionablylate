@@ -15,4 +15,9 @@ return [
         //Features::login(),
     ],
 
+    'redirects' => [
+        'login' => '/admin',
+        'logout' => '/login',
+    ],
+
 ];

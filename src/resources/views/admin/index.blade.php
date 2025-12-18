@@ -45,7 +45,7 @@
     <a href="{{ route('admin') }}" class="reset-btn">リセット</a>
 </form>
 
-<form action="{{ route(admin.export) }}" method="get">
+<form action="{{ route('admin.export') }}" method="get">
 <button class="export-btn">エクスポート</button>
 </form>
 <!--{{-- 一覧 --}}-->

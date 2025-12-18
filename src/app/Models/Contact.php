@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-//use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
@@ -19,7 +19,11 @@ class Contact extends Model
         'tel3',
         'address',
         'building',
-        'category',
+        'category_id',
         'message',
     ];
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
