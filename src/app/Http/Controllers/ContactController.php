@@ -29,6 +29,9 @@ class ContactController extends Controller
         if ($request->action === 'back') {
             return redirect()->route('contact.form')->withInput($inputs);
         }
+        // 登録処理
+    Contact::create($inputs);
+
         return view('contact.thanks');
     }
 

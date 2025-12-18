@@ -13,10 +13,11 @@ class AddCategoryIdToContactsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasColumn('contacts', 'category_id')) {
         Schema::table('contacts', function (Blueprint $table) {
-
-            $table->foreignId('category_id')->constrained()->after('email');
+            $table->unsignedBigInteger('category_id');
         });
+        }
     }
 
     /**
