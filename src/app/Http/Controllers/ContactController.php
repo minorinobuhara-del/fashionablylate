@@ -44,7 +44,9 @@ class ContactController extends Controller
         // DB登録処理
         Contact::create($inputs);
 
-        return view('contact.thanks');
+        //PostからGetへ
+        return redirect()->route('contact.thanks');
+        //return view('contact.thanks');
     }
 
     //修正
@@ -56,28 +58,27 @@ class ContactController extends Controller
     }
 
     //確認画面から戻る
-    public function index()
-{
-    return view('contact.index');
-}
+    //public function index()
+//{
+    //return view('contact.index');
+//}
 
 
 
     //送信→DB保存→サンクス画面
-    public function store(ContactRequest $request)
-    {
-        Contact::create([
-            'last_name' => $request->last_name,
-            'first_name' => $request-> first_name,
-            'gender' => $request-> gender,
-            'email' => $request-> email,
-            'tel' => str_replace('-', '', $request->tel),
-            'address' => $request-> address,
-            'building'    => $request->building,
-            'category' => $request->category,
-            'content'     => $request->content,
-        ]);
-        return view('content.thanks');
+    //public function store(ContactRequest $request)
+    //{
+        //Contact::create([
+            //'last_name' => $request->last_name,
+            //'first_name' => $request-> first_name,
+            //'gender' => $request-> gender,
+            //'email' => $request-> email,
+            //'tel' => str_replace('-', '', $request->tel),
+            //'address' => $request-> address,
+            //'building'    => $request->building,
+            //'category' => $request->category,
+            //'content'     => $request->content,
+        //]);
+        //return view('content.thanks');
 
-    }
 }
