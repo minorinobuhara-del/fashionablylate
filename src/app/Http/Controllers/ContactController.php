@@ -17,6 +17,12 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request)
     {
         $inputs = $request->all();
+
+        // ★ ここで変換する
+    if (isset($inputs['category'])) {
+        $inputs['category_id'] = $inputs['category'];
+        unset($inputs['category']);
+    }
         return view('contact.confirm', compact('inputs'));
     }
 
@@ -29,8 +35,14 @@ class ContactController extends Controller
         if ($request->action === 'back') {
             return redirect()->route('contact.form')->withInput($inputs);
         }
-        // 登録処理
-    Contact::create($inputs);
+        //DBカラムに合わせて結合
+        //if (isset($inputs['category'])) {
+            //$inputs['category_id'] = $inputs['category'];
+            //unset($inputs['category']);
+        //}
+
+        // DB登録処理
+        Contact::create($inputs);
 
         return view('contact.thanks');
     }

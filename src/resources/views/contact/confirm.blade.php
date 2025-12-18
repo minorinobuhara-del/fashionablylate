@@ -15,8 +15,8 @@
     </tr>
     <tr><th>住所</th><td>{{ $inputs['address'] }}</td></tr>
     <tr><th>建物名</th><td>{{ $inputs['building'] ?? '' }}</td></tr>
-    <tr><th>種類</th><td>{{ $inputs['category'] }}</td></tr>
-    <tr><th>内容</th><td>{!! nl2br(e($inputs['message'])) !!}</td></tr>
+    <tr><th>種類</th><td>{{ $inputs['category_id'] }}</td></tr>
+    <tr><th>内容</th><td>{!! nl2br(e($inputs['content'])) !!}</td></tr>
 </table>
 
 <div class="confirm__btn-wrapper">
