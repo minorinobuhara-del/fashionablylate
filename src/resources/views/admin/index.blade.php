@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v=1">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 <h2 class="title">Admin</h2>
 
 <!--{{-- 検索フォーム --}}-->
-<form method="GET" action="{{ route('admin') }}" class="search-form">
+<form method="get" action="{{ route('admin') }}" class="search-form">
     <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
 
     <select name="gender">
@@ -48,7 +48,7 @@
 <form action="{{ route('admin.export') }}" method="get">
 <button class="export-btn">エクスポート</button>
 </form>
-<!--{{-- 一覧 --}}-->
+<!--{{-- 詳細一覧 --}}-->
 <table class="table">
     <tr>
         <th>お名前</th>
@@ -59,22 +59,21 @@
     </tr>
 
 @foreach ($contacts as $contact)
-<tr>
-    <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
-    <td>{{ $contact->gender }}</td>
-    <td>{{ $contact->email }}</td>
-    <td>{{ $contact->category->content ?? '' }}</td>
-    <td>
-        <button class="detail-btn"
-            data-name="{{ $contact->last_name }} {{ $contact->first_name }}"
-            data-gender="{{ $contact->gender }}"
-            data-email="{{ $contact->email }}"
-            data-category="{{ $contact->category->content ?? '' }}"
-            data-detail="{{ $contact->detail }}">
-            詳細
-        </button>
-    </td>
-</tr>
+    <tr>
+        <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+        <td>{{ $contact->gender }}</td>
+        <td>{{ $contact->email }}</td>
+        <td>{{ $contact->category->content ?? '' }}</td>
+        <td>
+            <button class="detail-btn"
+                data-id="{{ $contact->id }}"
+                data-name="{{ $contact->last_name }} {{ $contact->first_name }}"
+                data-email="{{ $contact->email }}"
+                data-message="{{ $contact->message }}">
+                詳細
+            </button>
+        </td>
+    </tr>
 @endforeach
 
 </table>
@@ -113,6 +112,9 @@
             document.getElementById('modal-category').textContent = button.dataset.category;
             document.getElementById('modal-detail').textContent = button.dataset.detail;
 
+            // ⭐ 削除用URLをセット
+            deleteForm.action = `/admin/${button.dataset.id}`;
+            
             modal.style.display = 'block';
         });
     });

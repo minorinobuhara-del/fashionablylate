@@ -97,7 +97,6 @@ class AdminController extends Controller
         Contact::findOrFail($id)->delete();
 
         return redirect()
-            ->route('admin')
-            ->with('message', '削除しました');
+            ->route('admin');
     }
 }
