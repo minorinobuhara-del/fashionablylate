@@ -68,7 +68,7 @@ class ContactController extends Controller
 
         // ★ content → detail（DBに合わせる場合）
         if (isset($inputs['content'])) {
-        $inputs['detail'] = $inputs['content'];
+        $inputs['detail'] = $inputs['content'] ?? '';
         unset($inputs['content']);
     }
 
