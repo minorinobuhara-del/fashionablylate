@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
+
 
 class ContactController extends Controller
 {
@@ -16,35 +18,65 @@ class ContactController extends Controller
     // 確認画面
     public function confirm(ContactRequest $request)
     {
-        $inputs = $request->all();
+        //$inputs = $request->all();
+        $inputs = $request->validated();
+
 
         // ★ ここで変換する
-    if (isset($inputs['category'])) {
-        $inputs['category_id'] = $inputs['category'];
-        unset($inputs['category']);
-    }
+    //if (isset($inputs['category'])) {
+        //$inputs['category_id'] = $inputs['category'];
+        //unset($inputs['category']);
+    //}
         return view('contact.confirm', compact('inputs'));
     }
 
     // 送信処理
     public function send(ContactRequest $request)
     {
-        $inputs = $request->except('action');
+        // $inputs = $request->except('action');
 
         // 戻るボタン
         if ($request->action === 'back') {
-            return redirect()->route('contact.form')->withInput($inputs);
+            return redirect()->route('contact.form')->withInput($request->validated());
         }
+         $inputs = $request->validated();
+
+         // ★ カテゴリー変換表（文字列 → ID）
+        $categoryMap = [
+        '商品のお届けについて' => 1,
+        '商品の交換について' => 2,
+        '商品トラブル' => 3,
+        'ショップへのお問い合わせ' => 4,
+        'その他' => 5,
+    ];
         //DBカラムに合わせて結合
-        //if (isset($inputs['category'])) {
-            //$inputs['category_id'] = $inputs['category'];
-            //unset($inputs['category']);
-        //}
+        if (isset($inputs['category'])) {
+            $inputs['category_id'] = $categoryMap[$inputs['category']];
+            unset($inputs['category']);
+        }
+
+        //tel結合
+        // tel結合
+        if (isset($inputs['tel1'])) {
+            $inputs['tel'] =
+            $inputs['tel1'] .
+            $inputs['tel2'] .
+            $inputs['tel3'];
+
+            unset($inputs['tel1'], $inputs['tel2'], $inputs['tel3']);
+    }
+
+        // ★ content → detail（DBに合わせる場合）
+        if (isset($inputs['content'])) {
+        $inputs['detail'] = $inputs['content'];
+        unset($inputs['content']);
+    }
 
         // DB登録処理
         Contact::create($inputs);
+        //Contact::create($request->validated());
 
-        //PostからGetへ
+        //サンクスページ表示
         return redirect()->route('contact.thanks');
         //return view('contact.thanks');
     }
