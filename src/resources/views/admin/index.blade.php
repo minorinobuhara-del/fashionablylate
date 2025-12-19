@@ -67,8 +67,10 @@
         <td>
             <button class="detail-btn"
                 data-id="{{ $contact->id }}"
+                data-gender="{{ $contact->gender }}"
                 data-name="{{ $contact->last_name }} {{ $contact->first_name }}"
                 data-email="{{ $contact->email }}"
+                data-category="{{ $contact->category->content ?? '' }}"
                 data-message="{{ $contact->message }}">
                 詳細
             </button>
@@ -92,10 +94,11 @@
         <form id="delete-form" method="post">
         @csrf
         @method('DELETE')
-
+        <p style="text-align: center;">
         <button type="submit" class="delete-btn">
         削除
         </button>
+        </p>
 </form>
     </div>
 </div>
@@ -103,6 +106,7 @@
 <script>
     const modal = document.getElementById('modal');
     const closeBtn = document.querySelector('.close');
+    const deleteForm = document.getElementById('delete-form');
 
     document.querySelectorAll('.detail-btn').forEach(button => {
         button.addEventListener('click', () => {
@@ -110,7 +114,7 @@
             document.getElementById('modal-gender').textContent = button.dataset.gender;
             document.getElementById('modal-email').textContent = button.dataset.email;
             document.getElementById('modal-category').textContent = button.dataset.category;
-            document.getElementById('modal-detail').textContent = button.dataset.detail;
+            document.getElementById('modal-detail').textContent = button.dataset.message;
 
             // ⭐ 削除用URLをセット
             deleteForm.action = `/admin/${button.dataset.id}`;
