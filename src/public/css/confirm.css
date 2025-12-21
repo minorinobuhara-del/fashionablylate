@@ -7,12 +7,35 @@ Confirm ページ全体
 }
 
 /* タイトル */
-.confirm-title {
+.confirm-title{
+    border: 1px solid #d5c7b8;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: #7a6a56;
+    font-size: 14px;
+}
+
+/* ヘッダー */
+.confirm-header {
     text-align: center;
+    margin: 40px 0 30px;
+}
+
+.site-title {
     font-size: 28px;
-    font-weight: 600;
-    color: #6d5a4d;
-    margin: 40px 0 50px;
+    margin-bottom: 10px;
+}
+
+.page-title {
+    font-size: 18px;
+}
+
+/* =========================
+テーブル外枠
+========================= */
+.confirm-table-wrapper{
+    max-width: 900px;/* 表の横幅 */
+    margin: 0 auto;
 }
 
 /* ==============================
@@ -21,35 +44,30 @@ Confirm ページ全体
 .confirm-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto 50px;
-    font-size: 15px;
+    border: 1px solid #e5e5e5;
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 16px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 /* 左側（項目名） */
 .confirm-table th {
-    width: 260px;
-    background-color: #bfb1a5;
-    /* ← スクショのブラウン */
-    color: #ffffff;
-    font-weight: 600;
-    text-align: center;
-    padding: 18px 15px;
-    border-bottom: 1px solid #e6dfd9;
+    width: 30%;
+    background-color: #c4b6a8;
+    color: #fff;
+    font-weight: normal;
+    text-align: left;
 }
 
 /* 右側（入力値） */
 .confirm-table td {
-    background-color: #ffffff;
-    color: #6d5a4d;
-    padding: 18px 25px;
-    border-bottom: 1px solid #e6dfd9;
-    line-height: 1.8;
-}
-
-/* 最下行も線を揃える */
-.confirm-table tr:last-child th,
-.confirm-table tr:last-child td {
-    border-bottom: 1px solid #e6dfd9;
+    width: 70%;
+    background-color: #fff;
+    color: #8b7b6b;
 }
 
 /* ==============================

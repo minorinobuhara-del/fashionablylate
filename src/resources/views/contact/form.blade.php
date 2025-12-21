@@ -10,7 +10,7 @@
     @csrf
 
     <div class="form-group">
-        <label>お名前 *</label>
+        <label>お名前 <span style="color: red;">*</span></label>
         <div class="name-flex">
             <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 山田">
             <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 太郎">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-group">
-        <label>性別 *</label>
+        <label>性別 <span style="color: red;">*</span></label>
         <label><input type="radio" name="gender" value="男性" {{ old('gender')=='男性'?'checked':'' }}> 男性</label>
         <label><input type="radio" name="gender" value="女性" {{ old('gender')=='女性'?'checked':'' }}> 女性</label>
         <label><input type="radio" name="gender" value="その他" {{ old('gender')=='その他'?'checked':'' }}> その他</label>
@@ -28,13 +28,13 @@
     </div>
 
     <div class="form-group">
-        <label>メールアドレス *</label>
+        <label>メールアドレス <span style="color: red;">*</span></label>
         <input type="email" name="email" value="{{ old('email') }}" placeholder="test@example.com">
         @error('email') <p class="error">{{ $message }}</p> @enderror
     </div>
 
     <div class="form-group">
-        <label>電話番号 *</label>
+        <label>電話番号 <span style="color: red;">*</span></label>
         <div class="tel-flex">
             <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080">
             <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234">
@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group">
-        <label>住所 *</label>
+        <label>住所 <span style="color: red;">*</span></label>
         <input type="text" name="address" value="{{ old('address') }}" placeholder="東京都渋谷区…">
         @error('address') <p class="error">{{ $message }}</p> @enderror
     </div>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="form-group">
-        <label>お問い合わせ種類 *</label>
+        <label>お問い合わせ種類 <span style="color: red;">*</span></label>
         <select name="category">
             <option value="">選択してください</option>
             <option value="商品のお届けについて" {{ old('category')=='商品のお届けについて'?'selected':'' }}>商品のお届けについて</option>
@@ -68,7 +68,7 @@
     </div>
 
     <div class="form-group">
-        <label>お問い合わせ内容 *</label>
+        <label>お問い合わせ内容 <span style="color: red;">*</span></label>
         <textarea name="content" placeholder="ご記入ください">{{ old('content') }}</textarea>
         @error('content') <p class="error">{{ $message }}</p> @enderror
     </div>

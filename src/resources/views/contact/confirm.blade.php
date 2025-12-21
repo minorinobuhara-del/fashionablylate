@@ -4,8 +4,12 @@
 @section('title', '確認画面')
 
 @section('content')
-<h1 class="confirm-title">確認画面</h1>
+<div class="confirm-header">
+<h1 class="site-title">FashionablyLate</h1>
+<p class="page-title">Confirm</p>
+</div>
 
+<div class="confirm-table-wrapper">
 <table class="confirm-table">
     <tr><th>お名前</th><td>{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</td></tr>
     <tr><th>性別</th><td>{{ $inputs['gender'] }}</td></tr>
@@ -18,6 +22,7 @@
     <tr><th>種類</th><td>{{ $inputs['category'] }}</td></tr>
     <tr><th>内容</th><td>{!! nl2br(e($inputs['content'])) !!}</td></tr>
 </table>
+</div>
 
 <div class="confirm__btn-wrapper">
 {{-- 送信ボタン --}}
