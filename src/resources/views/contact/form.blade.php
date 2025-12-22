@@ -1,11 +1,19 @@
-@extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/form.css') }}">
-@section('title', 'お問い合わせ')
-
-@section('content')
-
-<h1>Contact</h1>
-
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    @extends('layouts.app')
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+    @section('title', 'お問い合わせ')
+    @section('content')
+</head>
+<body>
+    <div class="contact-header">
+    <h1 class="site-title">FashionablyLate</h1>
+    <p class="page-title">Contact</p>
+    </div>
 <form action="{{ route('contact.confirm') }}" method="post">
     @csrf
 
@@ -76,5 +84,5 @@
     <button type="submit" class="btn">確認画面へ</button>
    </div>
 </form>
-
+</body>
 @endsection
