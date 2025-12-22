@@ -1,9 +1,10 @@
 /* ==============================
 Confirm ページ全体
 ============================== */
-.confirm-wrapper {
-    width: 900px;
-    margin: 0 auto;
+body {
+    font-family: serif;
+    color: #8b7b6b;
+    background-color: #fff;
 }
 
 /* タイトル */

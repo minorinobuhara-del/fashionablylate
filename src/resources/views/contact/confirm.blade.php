@@ -1,13 +1,19 @@
-@extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
-
-@section('title', '確認画面')
-
-@section('content')
-<div class="confirm-header">
-<h1 class="site-title">FashionablyLate</h1>
-<p class="page-title">Confirm</p>
-</div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm</title>
+    @extends('layouts.app')
+    <link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
+    @section('title', '確認画面')
+    @section('content')
+</head>
+<body>
+    <div class="confirm-header">
+    <h1 class="site-title">FashionablyLate</h1>
+    <p class="page-title">Confirm</p>
+    </div>
 
 <div class="confirm-table-wrapper">
 <table class="confirm-table">
@@ -43,4 +49,5 @@
     <button type="submit" class="confirm-back">修正</button>
 </form>
 </div>
+</body>
 @endsection
